@@ -1,14 +1,50 @@
 # django
-django project
+__________________________________
+1.УСТАНОВКА ВИРТУАЛЬНОГО ОКРУЖЕНИЯ
+__________________________________
+# 1. Установка пакета для работы с виртуальными окружениями
+sudo apt install python3-virtualenv
 
-solution 25.08.2021.
+# 2. Создание нового окружения с python3.8 в директории venv:
+virtualenv -p python3.8 venv/
 
-1. create notes/ application
-2. add 'notes' in blog/settings.py -> INSTALLED_APPS ->'notes'.
-3. in notes/views.py create -> def index2(request).
-4. in blog/urls.py -> urlpatterns -> add path('notes/', index2)
+# 3. Активация в текущей консоли виртуального окружения
+source venv/bin/activate
 
-5. 
+______________________________________________
+2.УСТАНОВКА ФРЕЙМВОРКА В ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ
+______________________________________________
 
+pip install django
+
+# Создание нового репозитория
+cd projects/
+mkdir django
+cd django/
+
+# Создание базовой структуры Django проекта (blog - название проекта)
+django-admin startproject blog
+
+___________________________
+3.РАБОТА С ПРОЕКТОМ (blog)
+___________________________
+
+# Создание базовых таблиц в базе данных
+python manage.py migrate
+
+# Создание системного пользователя
+python manage.py createsuperuser
+
+# Запуск локального сервера
+python manage.py runserver
+
+_____________________________
+4.СОЗДАНИЕ ПРИЛОЖЕНИЙ (app)
+_____________________________
+
+# Создание нового приложения
+python manage.py startapp [name]
+
+# В файле blog.settings добавить в список INSTALLED_APPS новое приложение
 
 

@@ -15,12 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
 
-from post.views import index
+from post.views import index as post_index
+from profiles.views import index as profiles_index
 from notes.views import index2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/', index),
+    path('post/', post_index, name='post_index'),
+    #path('profiles/', profiles_index, name='profiles_index'),
     path('notes/', index2),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    # Server static and media files from development server
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
