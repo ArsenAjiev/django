@@ -6,4 +6,4 @@ from django.http import HttpResponse
 
 
 def index2(request):
-   return HttpResponse("Notes index2 view- Hello world-2")
+   return HttpResponse("I do not know how to search")

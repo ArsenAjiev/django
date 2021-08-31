@@ -24,7 +24,7 @@ from notes.views import index2
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/', post_index, name='post_index'),
-    #path('profiles/', profiles_index, name='profiles_index'),
+    path('profiles/', profiles_index, name='profiles_index'),
     path('notes/', index2),
 ]
 
