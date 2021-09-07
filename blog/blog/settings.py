@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'post',
     'notes',
     'profiles',
+    'crispy_forms',
+
 
 ]
 
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -162,3 +164,5 @@ LOGGING = {
         'level': 'ERROR',
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -17,15 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 
-from post.views import index as post_index
+from post.views import index as post_index, register, add_post
 from profiles.views import index as profiles_index
 from notes.views import index2
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/', post_index, name='post_index'),
     path('profiles/', profiles_index, name='profiles_index'),
     path('notes/', index2),
+    path('register/', register, name='register'),
+    path('add_post/', add_post, name='add_post'),
 ]
 
 if settings.DEBUG:
