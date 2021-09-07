@@ -13,13 +13,15 @@ class RegistrationForm(forms.Form):
 
 
 
-
+# add form for Post without fields:
+# author(will be added automatically in add_post function)
+# image (can't do it)
+# created_ad(field is created automatically)
 class AddPostForm(forms.Form):
-    #author = forms.ModelChoiceField(queryset=Post.author)
     title = forms.CharField(max_length=200)
     slug = forms.SlugField()
     text = forms.CharField()
     test = forms.CharField()
-    # image = forms.ImageField()
+    # image = forms.ImageField() - don't work
 
 

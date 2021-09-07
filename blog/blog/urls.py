@@ -29,6 +29,7 @@ urlpatterns = [
     path('profiles/', profiles_index, name='profiles_index'),
     path('notes/', index2),
     path('register/', register, name='register'),
+    # add new url for templates add_post.html
     path('add_post/', add_post, name='add_post'),
 ]
 

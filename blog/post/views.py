@@ -35,11 +35,14 @@ def register(request):
     return render(request, 'register.html', {"form": form})
 
 
+# added function for templates - add.post.html
 def add_post(request):
     if request.method == "POST":
         form = AddPostForm(request.POST)
         if form.is_valid():
             #  logger.info(form.cleaned_data)
+            # unpacking the dictionary and assigning values from the received data to the model
+            # author=request.user - will be added automatically
             Post.objects.create(**form.cleaned_data, author=request.user)
             return redirect('post_index')
 
