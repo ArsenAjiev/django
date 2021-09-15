@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'post',
     'notes',
     'profiles',
@@ -166,3 +167,11 @@ LOGGING = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# https://www.django-rest-framework.org/tutorial/quickstart/
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}

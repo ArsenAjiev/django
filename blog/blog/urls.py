@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 
 from post.views import index as post_index, register, add_post
@@ -31,6 +31,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     # add new url for templates add_post.html
     path('add_post/', add_post, name='add_post'),
+    path("api/", include("api.urls", namespace="api")),
 ]
 
 if settings.DEBUG:
