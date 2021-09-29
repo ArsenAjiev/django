@@ -6,8 +6,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
 # Virtual environments
 .venv/
 venv/
+
+# Static and media files
+static/
+media/
+
 

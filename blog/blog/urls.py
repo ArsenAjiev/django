@@ -20,6 +20,7 @@ from django.conf import settings
 from post.views import index as post_index, register, add_post
 from profiles.views import index as profiles_index
 from notes.views import index2
+from shop.views import shop_index
 
 
 
@@ -32,6 +33,7 @@ urlpatterns = [
     # add new url for templates add_post.html
     path('add_post/', add_post, name='add_post'),
     path("api/", include("api.urls", namespace="api")),
+    path('shop/', shop_index, name='shop_index'),
 ]
 
 if settings.DEBUG:
