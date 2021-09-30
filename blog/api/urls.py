@@ -15,6 +15,7 @@ router.register(r"posts", PostViewSet)
 router.register(r"notes", NotesViewSet)
 
 
+
 urlpatterns = [
     path("", include(router.urls)),
     path("api-auth/", include(
