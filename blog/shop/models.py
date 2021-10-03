@@ -34,5 +34,17 @@ class Purchase(models.Model):
    count = models.IntegerField()
 
 
+class Iphone6(models.Model):
+   title = models.CharField(max_length=200)
+   description = models.CharField(max_length=200)
+   price = models.CharField(max_length=50)
+   created_at = models.DateTimeField(
+       auto_now_add=True, db_index=True
+   )
+
+   def __str__(self):
+       return self.title
+
+
 
 # Create your models here.

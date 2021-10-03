@@ -2,7 +2,7 @@ from django.db.models import F, Sum
 from django.shortcuts import render
 
 from shop.forms import ProductFiltersForm
-from shop.models import Product
+from shop.models import Product, Iphone6
 
 
 def products_view(request):
@@ -29,7 +29,7 @@ def products_view(request):
                 ).order_by("-total_count")
             if order_by == "max_price":
                 products = products.annotate(
-                    total_price=Sum("purchases__count") * F("price")
+                    total_price=Sum("purchases__count") * F("cost")
                 ).order_by("-total_price")
 
     return render(
@@ -57,3 +57,8 @@ def product_details_view(request, *args, **kwargs):
             "is_product_in_favorites": request.user in product.favorites.all(),
         },
     )
+
+
+def iphone(request):
+    items = Iphone6.objects.all()
+    return render(request, 'iphone.html', {'items': items})

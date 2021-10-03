@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shop.models import Product, Purchase
+from shop.models import Product, Purchase, Iphone6
 
 class PurchaseInline(admin.TabularInline):
    model = Purchase
@@ -16,6 +16,11 @@ class ProductAdmin(admin.ModelAdmin):
 class PurshaseAdmin(admin.ModelAdmin):
    list_display = ("user", "product", "count",)
    search_fields = ("product",)
+
+@admin.register(Iphone6)
+class Iphone6Admin(admin.ModelAdmin):
+   list_display = ("title", "description", "price",)
+   search_fields = ("title",)
 
 
 
