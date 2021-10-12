@@ -1,10 +1,13 @@
 from django.db.models import F, Sum
 from django.shortcuts import render
+from django.core.paginator import Paginator
+
 
 from shop.forms import ProductFiltersForm
 from shop.models import Product, Iphone6
 
-
+# можно сделать срез c 1 о 10 Product.objects.all()[1:10]
+# products.filter(status=filters_form.cleaned_data["status"])[1:10]
 def products_view(request):
     products = Product.objects.all()
     filters_form = ProductFiltersForm(request.GET)
@@ -31,6 +34,13 @@ def products_view(request):
                 products = products.annotate(
                     total_price=Sum("purchases__count") * F("cost")
                 ).order_by("-total_price")
+
+# paginator
+
+    paginator = Paginator(products, 3)
+    page_number = request.GET.get("page")
+    products = paginator.get_page(page_number)
+
 
     return render(
         request,
@@ -59,6 +69,6 @@ def product_details_view(request, *args, **kwargs):
     )
 
 
-def iphone(request):
+def iphone1(request):
     items = Iphone6.objects.all()
     return render(request, 'iphone.html', {'items': items})

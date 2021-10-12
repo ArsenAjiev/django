@@ -20,7 +20,7 @@ from django.conf import settings
 from post.views import index as post_index, register, add_post
 from profiles.views import index as profiles_index
 from notes.views import index2
-from shop.views import products_view, product_details_view, iphone
+from shop.views import products_view, product_details_view, iphone1
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,8 +31,9 @@ urlpatterns = [
     # add new url for templates add_post.html
     path('add_post/', add_post, name='add_post'),
     path("api/", include("api.urls", namespace="api")),
-    path('shop/', products_view, name='products_view,'),
-    path('iphone/', iphone, name='ipone'),
+    path("api/auth", include("rest_framework.urls", namespace="rest_framework")),
+    path('', products_view, name='products_view,'),
+    path('iphone1/', iphone1, name='ipone'),
     path(
         "product/<int:product_id>/", product_details_view, name="product_details_view"
     ),
